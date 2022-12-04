@@ -14,7 +14,7 @@ from tensorflow.keras.layers import Activation
 def generate():
     """ Generate a piano midi file """
     # load the notes used to train the model
-    with open('data/notes', 'rb') as filepath:
+    with open('/content/lstm/data/notes', 'rb') as filepath:
         notes = pickle.load(filepath)
 
     # Get all pitch names
@@ -74,7 +74,7 @@ def create_network(network_input, n_vocab):
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
     # Load the weights to each node
-    model.load_weights('weights.hdf5')  # ch is here
+    model.load_weights('/content/lstm/weights.hdf5')  # ch is here
 
     return model
 
